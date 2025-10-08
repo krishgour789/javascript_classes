@@ -105,13 +105,13 @@
 
 
 // wap to print a reverse table of any number  using function type 2
-let n = parseInt(prompt("Enter a number "))
-function table(m){
-    for(let i=10;i>=1;i--){
-        console.log(n,"*",i,"=",n*i)
-    }
-}
-table(n)
+// let n = parseInt(prompt("Enter a number "))
+// function table(m){
+//     for(let i=10;i>=1;i--){
+//         console.log(n,"*",i,"=",n*i)
+//     }
+// }
+// table(n)
 
 
 
