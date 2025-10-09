@@ -6,6 +6,7 @@ for(let a = 1;a<=10;a++){
         li.style.backgroundColor='green'
         li.style.color='white'
         li.style.padding='12px'
+       
     }
     else{
         li.style.backgroundColor='blue'
