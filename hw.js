@@ -33,3 +33,30 @@ let c = document.getElementById("negative")
 c.style.backgroundColor='green'
 c.style.color='white'
 c.style.padding='12px'
+
+
+function change(){
+    document.getElementById('text').textContent='Get Lost'
+    document.getElementById('text').style.backgroundColor='red'
+
+}
+
+
+function change1(){
+    document.getElementById('text').textContent='Tap here'
+    document.getElementById('text').style.backgroundColor='green'
+
+}
+
+
+function laptop(){
+    document.getElementById('img').setAttribute('src','laptop.jpg')
+}
+function mobile(){
+    document.getElementById('img').setAttribute('src','mobile.webp')
+}
+
+
+function tablet(){
+    document.getElementById('img').setAttribute('src','tablet.webp')
+}

@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #b2{
+        
+        }
+    </style>
+
 </head>
 <body>
     <div id="count">
         0
     </div> <br> <br>
     <button onclick="negative()" id="negative">-</button>
-    <button onclick="positive()" id="positive">+</button>
+    <button onclick="positive()" id="positive">+</button> <br> <br>
+
+   <h1 onmouseenter="change()" id="text" onmouseleave="change1()">Get Lost</h1>
+
+   <button id="b1" onclick="mobile()">Mobile</button>
+   <p id="b2" onmouseenter="laptop() ">Laptop</p>
+   <button id="b3" onclick="tablet()">Tablet</button> <br> <br>
+
+   <img id="img" width="300px" height="200px">
+
     <script src="hw.js"></script>
 </body>
 </html>

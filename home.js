@@ -17,4 +17,6 @@ for(let a = 1;a<=10;a++){
 let b = document.getElementById('h1')
 b.style.backgroundColor='royalblue'
 b.style.textAlign='center'
+
+
  
