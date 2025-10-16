@@ -16,7 +16,7 @@ y[4].style.backgroundColor='pink'
 y[5].style.backgroundColor='orange'
 
 
-// class name or tagname dono ek jaise behave krte hai getelementsbyclassname array ki from mai return krta hai 
+// class name or tagname dono ek jaise behave krte hai getelementsbyclassname array ki form mai return krta hai 
 // variable ko
 
 let z = document.getElementsByClassName('head')
@@ -24,4 +24,3 @@ console.log(z[0])
 z[0].style.backgroundColor='yellow'
 z[1].style.backgroundColor='royalblue'
 z[2].style.backgroundColor='pink'
-
