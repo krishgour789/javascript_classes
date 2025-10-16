@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #class{
+            text-align: center;
+            margin-top: 100px;
+            font-family: monospace;
+            background-color: cadetblue;
+            padding: 50px;
+        }
+        #timer{
+            font-size: 30px;
+            margin-bottom: 50px;
+            color: rgb(48, 24, 20);
+            font-weight: bolder;
+        }
+        #startbtn{
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: darkgoldenrod;
+            border-radius: 10px;
+            border: 2px solid black;
+
+        }
+        #stopbtn{
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: darkgoldenrod;
+            border-radius: 10px;
+            border: 2px solid black;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div id="class">
+        <h1 id="timer">0</h1>
+        <button id="startbtn">Start</button>
+        <button id="stopbtn">Stop</button>
+    </div>
+
+    <script>
+        let timer = document.getElementById('timer')
+        let startbtn = document.getElementById('startbtn')
+        let stopbtn = document.getElementById('stopbtn')
+        let count=0
+        let interval = null
+        startbtn.addEventListener('click',()=>{
+            if (interval==null){
+                interval = setInterval(()=>{
+                    count++
+                    timer.textContent = count
+                    ,1000
+                
+                })
+            }
+            else{
+                alert('Timer is already runnung')
+            }
+        })
+        stopbtn.addEventListener('click',()=>{
+            clearInterval(interval)
+            interval = null
+
+        })
+    </script>
+</body>
+</html>

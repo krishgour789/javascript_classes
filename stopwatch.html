@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f3f4f6;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    #startBtn {
+      background-color: #4caf50;
+      color: white;
+    }
+    #stopBtn {
+      background-color: #f44336;
+      color: white;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="timer">0</h1>
+  <button id="startBtn">Start</button>
+  <button id="stopBtn">Stop</button>
+
+  <script>
+    let timer = document.getElementById("timer");
+    let startBtn = document.getElementById("startBtn");
+    let stopBtn = document.getElementById("stopBtn");
+
+    let count = 0;
+    let interval = null;
+
+    // Function to start timer
+    startBtn.addEventListener("click", () => {
+      if (interval === null) {
+        interval = setInterval(() => {
+          count++;
+          timer.textContent = count;
+        }, 1000);
+      }
+    });
+
+    // Function to stop timer
+    stopBtn.addEventListener("click", () => {
+      clearInterval(interval);
+      interval = null;
+    });
+  </script>
+</body>
+</html>
