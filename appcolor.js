@@ -37,3 +37,6 @@ function twit(){
     e.style.color='white'
 
 }
+document.getElementById('btn').addEventListener("click",function(){
+    document.getElementById("message").innerText("")
+})
