@@ -76,6 +76,41 @@ function fun1(){
     document.querySelector("#cpass").focus()
     return false
    }
+   else if(pass!=cpass){
+    alert("Password and Confirm Password must be same")
+    document.querySelector("#cpass").focus()
+    return false
+   }
+   else if(pass.length<8 || pass.length>15){
+    alert("Password must be greater than 8 character and less than 15 character")
+    document.querySelector("#pass").focus()
+    return false
+   }       
+  else if(cpass.length<8 || cpass.length>15){
+    alert("Confirm Password must be greater than 8 character and less than 15 character")
+    document.querySelector("#cpass").focus()
+    return false
+   } 
+   else if(!(pass.match(/[A-Z]/))){
+    alert("Password must contain one capital letter")
+    document.querySelector("#pass").focus()
+    return false
+   }    
+   else if(!(pass.match(/[a-z]/))){
+    alert("Password must contain one small letter")
+    document.querySelector("#pass").focus()
+    return false
+   }    
+   else if (!(cpass.match(/[A-Z]/))){
+    alert("Confirm Password must have one capital letter")   
+    document.querySelector("#cpass").focus()
+    return false
+   }
+    else if(!(cpass.match(/[a-z]/))){
+    alert("Confirm Password must have one small letter")
+    document.querySelector("#cpass").focus()
+    return false
+    }
 }
 
   
