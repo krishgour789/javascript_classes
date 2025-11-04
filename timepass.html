@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Contact & Signup Form</h1>
+
+        <form id="mainForm" novalidate>
+            <div class="row">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" required />
+                <small class="error" id="nameError"></small>
+            </div>
+
+            <div class="row">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+                <small class="error" id="emailError"></small>
+            </div>
+
+            <div class="row">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" minlength="6" required />
+                <meter id="pwStrength" min="0" max="4" value="0"></meter>
+                <small class="error" id="passwordError"></small>
+            </div>
+
+            <div class="row inline">
+                <label>Gender</label>
+                <label><input type="radio" name="gender" value="male" checked/> Male</label>
+                <label><input type="radio" name="gender" value="female"/> Female</label>
+                <label><input type="radio" name="gender" value="other"/> Other</label>
+            </div>
+
+            <div class="row">
+                <label for="age">Age</label>
+                <input id="age" name="age" type="number" min="13" max="120" required />
+                <small class="error" id="ageError"></small>
+            </div>
+
+            <div class="row">
+                <label>Hobbies</label>
+                <label><input type="checkbox" name="hobbies" value="reading"/> Reading</label>
+                <label><input type="checkbox" name="hobbies" value="coding"/> Coding</label>
+                <label><input type="checkbox" name="hobbies" value="sports"/> Sports</label>
+            </div>
+
+            <div class="row">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="">Choose...</option>
+                    <option>United States</option>
+                    <option>United Kingdom</option>
+                    <option>India</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <div class="row">
+                <label for="avatar">Avatar (image ≤ 1MB)</label>
+                <input id="avatar" name="avatar" type="file" accept="image/*" />
+                <small class="error" id="avatarError"></small>
+                <div id="avatarPreview" class="preview" aria-hidden="true"></div>
+            </div>
+
+            <div class="row actions">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+
+        <section id="result" aria-live="polite"></section>
+    </div>
+
+    <style>
+        .form-container {
+            max-width: 720px;
+            margin: 28px auto;
+            padding: 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: #fff;
+        }
+        h1 { font-size: 1.2rem; margin: 0 0 12px; }
+        form .row { display: flex; flex-direction: column; margin-bottom: 12px; }
+        form .row.inline { flex-direction: row; gap: 12px; align-items: center; }
+        label { font-weight: 600; margin-bottom: 6px; }
+        input[type="text"], input[type="email"], input[type="password"], input[type="number"], select, textarea {
+            padding: 8px 10px;
+            border: 1px solid #cfcfcf;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+        input[type="file"] { padding: 6px 0; }
+        .actions { display: flex; gap: 8px; }
+        button { padding: 8px 12px; border-radius: 6px; border: none; cursor: pointer; background: #0b5fff; color: white; }
+        button[type="reset"] { background: #6b7280; }
+        .error { color: #b91c1c; font-size: 0.85rem; min-height: 1em; }
+        .preview img { max-width: 120px; max-height: 120px; border-radius: 6px; margin-top: 8px; }
+        #result { margin-top: 16px; padding: 12px; border-radius: 6px; background: #f3f4f6; font-size: 0.95rem; white-space: pre-wrap; }
+        @media (min-width: 720px) {
+            form .row { flex-direction: row; align-items: center; }
+            form .row > label { width: 160px; margin-bottom: 0; }
+            form .row > input, form .row > select, form .row > textarea, form .row > div { flex: 1; }
+            form .row.inline { flex-wrap: wrap; }
+        }
+    </style>
+
+    <script>
+        // Small helper for validation messages
+        const qs = sel => document.querySelector(sel);
+        const form = qs('#mainForm');
+        const result = qs('#result');
+
+        function showError(id, msg) {
+            qs('#' + id + 'Error').textContent = msg || '';
+        }
+
+        // Password strength meter
+        const password = qs('#password');
+        const pwStrength = qs('#pwStrength');
+        password.addEventListener('input', () => {
+            const val = password.value || '';
+            let score = 0;
+            if (val.length >= 6) score++;
+            if (/[A-Z]/.test(val)) score++;
+            if (/[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+            pwStrength.value = score;
+            showError('password', score < 2 && val.length ? 'Weak password' : '');
+        });
+
+        // Email quick check
+        const email = qs('#email');
+        email.addEventListener('blur', () => {
+            const val = email.value.trim();
+            const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+            showError('email', val && !ok ? 'Enter a valid email' : '');
+        });
+
+        // Avatar preview + size check
+        const avatar = qs('#avatar');
+        const avatarPreview = qs('#avatarPreview');
+        avatar.addEventListener('change', () => {
+            avatarPreview.innerHTML = '';
+            showError('avatar', '');
+            const file = avatar.files[0];
+            if (!file) return;
+            if (!file.type.startsWith('image/')) {
+                showError('avatar', 'File must be an image');
+                avatar.value = '';
+                return;
+            }
+            if (file.size > 1_048_576) {
+                showError('avatar', 'Image must be ≤ 1 MB');
+                avatar.value = '';
+                return;
+            }
+            const img = document.createElement('img');
+            img.src = URL.createObjectURL(file);
+            img.onload = () => URL.revokeObjectURL(img.src);
+            avatarPreview.appendChild(img);
+            avatarPreview.setAttribute('aria-hidden', 'false');
+        });
+
+        // Form submit handler (client-side validation + display)
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let valid = true;
+            // Clear previous
+            ['name','email','password','age','avatar'].forEach(id => showError(id, ''));
+
+            const name = qs('#name').value.trim();
+            const emailVal = qs('#email').value.trim();
+            const passwordVal = qs('#password').value;
+            const ageVal = Number(qs('#age').value);
+            if (!name) { showError('name','Name is required'); valid = false; }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { showError('email','Valid email is required'); valid = false; }
+            if (passwordVal.length < 6) { showError('password','Password must be at least 6 characters'); valid = false; }
+            if (!Number.isFinite(ageVal) || ageVal < 13 || ageVal > 120) { showError('age','Enter a valid age (13-120)'); valid = false; }
+
+            // avatar already validated on change; check once more
+            const file = avatar.files[0];
+            if (file && (file.size > 1_048_576 || !file.type.startsWith('image/'))) {
+                showError('avatar','Invalid avatar file');
+                valid = false;
+            }
+
+            if (!valid) {
+                result.textContent = 'Please fix the errors above.';
+                return;
+            }
+
+            // Collect data to display (do not send anywhere)
+            const formData = new FormData(form);
+            const hobbies = [...form.querySelectorAll('input[name="hobbies"]:checked')].map(n => n.value);
+            const gender = formData.get('gender');
+            const country = formData.get('country') || 'N/A';
+            const message = formData.get('message') || '';
+
+            const summary = [
+                `Name: ${name}`,
+                `Email: ${emailVal}`,
+                `Gender: ${gender}`,
+                `Age: ${ageVal}`,
+                `Hobbies: ${hobbies.join(', ') || 'None'}`,
+                `Country: ${country}`,
+                `Message: ${message || '—'}`
+            ].join('\n');
+
+            result.textContent = 'Form ready to send (demo):\n\n' + summary;
+            // In a real app you would send formData via fetch() here.
+        });
+
+        // Clear preview and errors on reset
+        form.addEventListener('reset', () => {
+            setTimeout(() => {
+                avatarPreview.innerHTML = '';
+                ['name','email','password','age','avatar'].forEach(id => showError(id,''));
+                pwStrength.value = 0;
+                result.textContent = '';
+            }, 0);
+        });
+    </script></div>
+    
+
+</body>
+</html>
