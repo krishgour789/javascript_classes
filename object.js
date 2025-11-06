@@ -1,5 +1,6 @@
 // object is a data type in which multiple types  data can be store
 // the advantage of object is that it is key value form it is easy to fetch the data
+//
 
 // let emp = {
 //     name:"shivam",
@@ -13,26 +14,59 @@
 // emp.email = '@gmail.com' // with the help of these we can add/update key value pair
 // console.log(emp)
 
-let emp1 = {
-    student : 'Krish',
-    age : 21,
-    email : '@gmail.com',
-    rollno : 21,
-    contact :2626223,
-    city : 'sehore',
-    country : 'india',
-    region : 'local',
-    gender : 'male',
-    world : 'earth' ,
-    account : {
-        acc_name : "krish",      // we can  also store multiple data and make obejcts inside object 
-        acc_num : 12443355,
-        ifsc_co : "UNI0866"
+// let emp1 = {
+//     student : 'Krish',
+//     age : 21,
+//     email : '@gmail.com',
+//     rollno : 21,
+//     contact :2626223,
+//     city : 'sehore',
+//     country : 'india',
+//     region : 'local',
+//     gender : 'male',
+//     world : 'earth' ,
+//     account : {
+//         acc_name : "krish",      // we can  also store multiple data and make obejcts inside object 
+//         acc_num : 12443355,
+//         ifsc_co : "UNI0866"
 
-    }
+//     }
 
 
 
+// }
+// console.log(emp1.account.acc_name)
+// console.log(emp1.account.acc_num)
+
+// ==  [] we can also fetch the data we brackets = console.log['name'] 
+
+let obj = {
+    "full name" : "krish",
+    class : "Javascript"
 }
-console.log(emp1.account.acc_name)
-console.log(emp1.account.acc_num)
+// console.log(obj["full name"]) // Bracketnotation
+// console.log(obj.class)  //dotnotation
+
+// let nam = prompt("enter name")
+// let age = prompt("enter age")
+// let contact = prompt("enter contact")
+// let student = {
+//     stname : nam,
+//     stage : age,
+//     stcontact : contact
+// }
+// console.log(student)
+// for (let k in obj){      // for in used to fetch the key of objects
+//     console.log(k)
+// }
+
+// for (let k in obj){      // for in used to fetch the key/values of objects
+//     console.log(obj[k])
+// }
+
+// let k = Object.keys(obj)     // Object.keys(obj) is an inbuilt function used to fetch key
+// console.log(k)
+
+let l = Object.values(obj)   // Object.keys(obj) is an inbuilt function used to fetch values
+console.log(l)
+
