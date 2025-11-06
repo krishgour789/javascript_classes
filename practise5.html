@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return fun()">
+        <label for="">Name</label>
+        <input type="text" placeholder="Enter Your Name" id="name"> <br> <br>
+
+        <label for="">Email</label>
+        <input type="text" placeholder="Enter Your Name" id="email"> <h1 id="error"></h1><br><br>
+
+        <input type="submit">
+    </form>
+
+    <script>
+        function fun(){
+            let a = document.querySelector("#name").value
+            let b = document.querySelector("#email").value
+
+            if(a==''){
+                alert("Please fill the name")
+            return false
+        }
+            else if(!(b.includes('@gmail.com'))){
+                document.querySelector("#error").innerHTML='please enter right email'
+                return false
+            }
+
+        }
+    </script>
+</body>
+</html>
