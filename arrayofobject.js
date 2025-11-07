@@ -59,10 +59,13 @@ let ar = [{name:"krish",age:17},{name:"mohit",age:23}]
 // console.log(name)
 // console.log(age)
 
+let{name,age}={name:"krish",age:34}
+console.log(name)
+
 //----------------
 // spread operator is denoted by ...
 // it is used to merge not for adding a=[1,2,3,] b=[4,5,6] => [4,5,6,1,2,3]
 
-a = [1,2,3]
-b=[4,5,6,...a]
-console.log(b)  // [4, 5, 6, 1, 2, 3]
+// a = [1,2,3]
+// b=[4,5,6,...a]
+// console.log(b)  // [4, 5, 6, 1, 2, 3]
