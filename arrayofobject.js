@@ -29,7 +29,7 @@
 // map is high order function which help to access elements and traansfer all elements
 // into the new elements.  
 
-let ar = [{name:"krish",age:17},{name:"mohit",age:23}]
+// let ar = [{name:"krish",age:17},{name:"mohit",age:23}]
 // ar.map(()={              syntax
 //     return
 // })
@@ -59,8 +59,8 @@ let ar = [{name:"krish",age:17},{name:"mohit",age:23}]
 // console.log(name)
 // console.log(age)
 
-let{name,age}={name:"krish",age:34}
-console.log(name)
+// let{name,age}={name:"krish",age:34}
+// console.log(name)
 
 //----------------
 // spread operator is denoted by ...
@@ -69,3 +69,21 @@ console.log(name)
 // a = [1,2,3]
 // b=[4,5,6,...a]
 // console.log(b)  // [4, 5, 6, 1, 2, 3]
+
+
+// _______________________TASK_____________________________-
+const student = [
+    {name:"Aman",marks:85},
+    {name:"Preet",marks:45},
+    {name:"Karan",marks:60},
+    {name:"Meena",marks:35}
+]
+let res = student.filter((student)=>{
+    return student.marks>=50
+})
+console.log(res)
+
+let ar = res.map((res)=>{
+    return res.name
+})
+console.log(ar)
