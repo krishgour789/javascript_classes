@@ -53,12 +53,13 @@
 // localStorage.clear()
 
 
-let data = {
-    name:"Krish",age:23,city:"Sehore"
-}
-localStorage.setItem("username",JSON.stringify(data))  // JSON.Stringify helps to convert objects into string .
+// let data = {
+//     name:"Krish",age:23,city:"Sehore"
+// }
+// localStorage.setItem("username",JSON.stringify(data))  // JSON.Stringify helps to convert objects into string .
 
 
-let a = JSON.parse(localStorage.getItem("username")) // jSON.Parse use to convert the String into Objects
-console.log(a.name)
-console.log(a.age)
+// let a = JSON.parse(localStorage.getItem("username")) // jSON.Parse use to convert the String into Objects
+// console.log(a.name)
+// console.log(a.age)
+
