@@ -34,4 +34,4 @@ console.log(st1)
 // post >> insert
 // delete  >> delete
 // put   >> update
-// patch
+// patch   >> 
