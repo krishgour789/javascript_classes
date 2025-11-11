@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="return fun1()">
+        <label for="">Enter Name</label>
+        <input type="text" placeholder="Enter your name" id="name"> <br> <br>
+
+        <label for="">City</label>
+        <input type="text" placeholder="Entee your city" id="city"> <br> <br>
+
+        <label for="">Enter Extra Spaces</label>
+        <input type="text" id="class" placeholder="Write any thing with extra space"> <br><br>
+
+        <label for="">First Name</label>
+        <input type="text" placeholder="Enter your First Name" id="firstname"> <br> <br>
+
+        <label for="">Course Name</label>
+        <input type="text" placeholder="Enter your Course Name" id="coursename"> <br> <br>
+
+        <label for="">Q.7</label>
+        <input type="text" placeholder="Type" id="j7">
+        <input type="submit">
+
+    </form>
+    <h1 id="h1"></h1>
+    <h1 id="h2"></h1>
+    <h1 id="h3"></h1>
+    <h1 id="h4"></h1>
+
+    <script>
+        //__________________________task 1_____________________________
+        // function fun1(){
+        //     let name = document.getElementById('name').value
+        //     document.getElementById("h1").innerHTML = name.toUpperCase()
+
+        //     return false
+        // }
+
+        // -----------------------------task 2-------------------------
+        // function fun1(){
+        //     let name = document.getElementById('city').value
+        //     let city = `You Live in ${name}`
+        //     document.getElementById("h1").innerHTML = city
+        //     return false
+        // }
+
+        //__________________________-----task3______________________________
+        // 
+        //  function fun1(){
+        //     let name = document.getElementById('class').value
+        //     document.getElementById("h1").innerHTML = name.trim()
+        //     return false
+
+
+            // -----------------------------task 4-------------------------
+        // }
+
+        //  function fun1(){
+        //     let name = document.getElementById('class').value
+        //     document.getElementById("h1").innerHTML = name.trimStart()
+        //     return false
+        //  }
+
+        // -----------------------------task 5-------------------------
+        //   function fun1(){
+        //     let name = document.getElementById('class').value
+        //     document.getElementById("h1").innerHTML = name.trimEnd()
+        //     return false
+        //  }
+
+        // -----------------------------task 6-------------------------
+    //     function fun1(){
+    //         let firstname = document.getElementById('firstname').value
+    //         let coursename = document.getElementById('coursename').value
+    //         let input = `My name is ${firstname} and I am learning ${coursename}`
+    //         document.getElementById('h1').innerHTML=input
+
+            
+    //         return false
+    //     }
+
+
+     function fun1(){
+            let name = document.getElementById('j7').value
+            document.getElementById("h1").innerHTML = name.toUpperCase()
+            document.getElementById("h2").innerHTML = name.toLowerCase()
+            let b= document.getElementById("h3").innerHTML = name.trim()
+            let c = `Your final message is: ${b}`
+            document.getElementById("h4").innerHTML = c
+
+            return false
+        }
+    </script>
+</body>
+</html>
